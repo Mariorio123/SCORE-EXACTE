@@ -16,6 +16,7 @@
             --gold: #FFD700;
             --gold-dark: #D4AF37;
             --success: #28A745;
+            --danger: #DC3545;
         }
         
         /* Nouvelle section Hero */
@@ -63,6 +64,181 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        /* Nouvelle section Offre du Jour */
+        .daily-offer {
+            background: var(--noir-card);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 800px;
+            border: 2px solid var(--gold);
+            position: relative;
+        }
+        
+        .daily-offer h2 {
+            color: var(--gold);
+            text-align: center;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        
+        .daily-offer-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--noir);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .bet-coupon {
+            background: var(--noir-clair);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .bet-match {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
+        
+        .bet-match.locked::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        
+        .bet-match.free {
+            border-left: 4px solid var(--success);
+        }
+        
+        .bet-teams {
+            font-weight: bold;
+            flex: 2;
+        }
+        
+        .bet-type {
+            flex: 2;
+            color: var(--text-light);
+        }
+        
+        .bet-odd {
+            flex: 1;
+            text-align: center;
+            background: rgba(0,128,0,0.2);
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .bet-match.locked .bet-odd {
+            background: rgba(128,128,128,0.2);
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+        
+        /* Style pour cacher les types de paris dans les matchs verrouillés */
+        .bet-match.locked .bet-type {
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+        
+        .bet-total {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--gold);
+        }
+        
+        .bet-amount {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .bet-amount input {
+            background: var(--noir-clair);
+            border: 1px solid var(--gold);
+            color: var(--text);
+            padding: 10px 15px;
+            border-radius: 5px;
+            width: 150px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .potential-win {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+        
+        .potential-win span {
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .bet-disclaimer {
+            font-size: 0.8em;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .unlock-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--success), #1e7d34);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px auto 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .unlock-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+        }
+        
+        .free-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            z-index: 2;
         }
         
         /* Styles existants inchangés */
@@ -496,6 +672,16 @@
                 right: -25px;
                 padding: 2px 20px;
             }
+            
+            .bet-match {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .bet-type, .bet-odd {
+                margin-top: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -520,6 +706,46 @@
         </header>
         
         <div style="padding: 0 30px;">
+            <!-- Nouvelle section Offre du Jour Premium -->
+            <div class="daily-offer">
+                <div class="daily-offer-badge">OFFRE DU JOUR PREMIUM</div>
+                <h2>COUPON XBET EXCLUSIF</h2>
+                <div class="bet-coupon">
+                    <!-- Match gratuit -->
+                    <div class="bet-match free">
+                        <div class="free-badge">GRATUIT</div>
+                        <div class="bet-teams">Oural vs Lokomotiv</div>
+                        <div class="bet-type">Total buts +1.5</div>
+                        <div class="bet-odd">1.85</div>
+                    </div>
+                    
+                    <!-- Matchs verrouillés -->
+                    <div class="bet-match locked">
+                        <div class="bet-teams">Aston Villa vs Paris SG</div>
+                        <div class="bet-type">Les deux équipes marquent - Oui</div>
+                        <div class="bet-odd">1.62</div>
+                    </div>
+                    
+                    <div class="bet-match locked">
+                        <div class="bet-teams">Borussia Dortmund vs FC Barcelone</div>
+                        <div class="bet-type">Total buts +2.5</div>
+                        <div class="bet-odd">1.75</div>
+                    </div>
+                    
+                    <div class="bet-total">Cote combinée: <span class="combined-odd">5.24</span></div>
+                    <div class="bet-amount">
+                        <input type="text" placeholder="Montant" value="5000" readonly>
+                    </div>
+                    <div class="potential-win">Gain potentiel: <span class="win-amount">26 200 FCFA</span></div>
+                    <a href="https://pay.lygosapp.com//link/aed53b6d-e361-4db8-bbad-ecc7b31835e0" class="unlock-btn" target="_blank">
+                        DÉBLOQUER TOUT LE COUPON <i class="fas fa-unlock"></i>
+                    </a>
+                    <div class="bet-disclaimer">
+                        *Le match Oural vs Lokomotiv est offert gratuitement. Les autres pronostics sont réservés à nos abonnés VIP.
+                    </div>
+                </div>
+            </div>
+            
             <div class="stats-container">
                 <div class="stat-box">
                     <div class="stat-number">87%</div>
@@ -698,6 +924,13 @@
                 answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
             });
         });
+
+        // Calcul du gain potentiel
+        const combinedOdd = 5.24; // 1.85 * 1.62 * 1.75
+        const betAmount = 5000;
+        const potentialWin = (betAmount * combinedOdd).toFixed(0);
+        
+        document.querySelector('.win-amount').textContent = potentialWin + ' FCFA';
     </script>
 </body>
 </html>
