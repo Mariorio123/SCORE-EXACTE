@@ -116,15 +116,99 @@
             margin-bottom: 10px;
         }
         
-        .locked-content {
-            margin-top: 20px;
-            color: var(--gold);
+        .bet-prediction {
+            background: rgba(40, 167, 69, 0.2);
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
             font-weight: bold;
-            text-align: center;
         }
         
-        .locked-content i {
-            margin-right: 8px;
+        .hidden-prediction {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--gold);
+            position: relative;
+        }
+        
+        .hidden-prediction::after {
+            content: "RÉSERVÉ AUX ABONNÉS";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        
+        .validated-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        /* Section Résultats */
+        .results-section {
+            background: var(--noir-card);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 800px;
+            border: 2px solid var(--gold);
+        }
+        
+        .results-toggle {
+            display: block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--noir);
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            width: 300px;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .results-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        .results-content {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .results-date {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
         }
         
         /* Styles existants inchangés */
@@ -585,28 +669,68 @@
             <!-- Nouvelle section Coupon du Jour -->
             <div class="daily-offer">
                 <div class="daily-offer-badge">COUPON DU JOUR</div>
-                <h2>PRONOSTICS EXCLUSIFS</h2>
+                <h2>PRONOSTICS EXCLUSIFS - 17 AVRIL 2025</h2>
                 <div class="bet-coupon">
                     <!-- Match 1 -->
                     <div class="bet-match">
-                        <div class="bet-teams">Inter Milan - Bayern Munich</div>
-                        <div class="bet-date">16 avril 2025 (20:00) Temps réglementaire</div>
+                        <div class="bet-teams">Eintracht Frankfurt - Tottenham Hotspur</div>
+                        <div class="bet-date">20:00 - Ligue Europa</div>
+                        <div class="hidden-prediction">Pronostic: Plus de 1.5 buts dans le match</div>
                     </div>
                     
                     <!-- Match 2 -->
                     <div class="bet-match">
-                        <div class="bet-teams">Real Madrid - Arsenal</div>
-                        <div class="bet-date">16 avril 2025 (20:00) Temps réglementaire</div>
+                        <div class="bet-teams">Lazio - Bodo-Glimt</div>
+                        <div class="bet-date">20:00 - Ligue Europa Conférence</div>
+                        <div class="hidden-prediction">Pronostic: Plus de 2.5 buts dans le match</div>
                     </div>
                     
                     <!-- Match 3 -->
                     <div class="bet-match">
-                        <div class="bet-teams">Newcastle United - Crystal Palace</div>
-                        <div class="bet-date">16 avril 2025 (19:30) Temps réglementaire</div>
+                        <div class="bet-teams">Fiorentina - Celje</div>
+                        <div class="bet-date">17:45 - Ligue Europa Conférence</div>
+                        <div class="hidden-prediction">Pronostic: Plus de 1.5 buts dans le match</div>
                     </div>
                     
-                    <div class="locked-content">
-                        <i class="fas fa-lock"></i> Contenu réservé aux abonnés VIP
+                    <!-- Match 4 -->
+                    <div class="bet-match">
+                        <div class="bet-teams">Chelsea - Legia Varsovie</div>
+                        <div class="bet-date">20:00 - Ligue Europa</div>
+                        <div class="hidden-prediction">Pronostic: Plus de 2.5 buts dans le match</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Résultats -->
+            <div class="results-section">
+                <h2>RÉSULTATS</h2>
+                <button class="results-toggle" onclick="toggleResults()">
+                    <i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 16 AVRIL
+                </button>
+                
+                <div class="results-content" id="resultsContent">
+                    <div class="results-date">RÉSULTATS DU 16 AVRIL 2025</div>
+                    <div class="bet-coupon">
+                        <!-- Match 1 -->
+                        <div class="bet-match">
+                            <div class="bet-teams">Inter Milan - Bayern Munich <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">20:00 - Ligue des Champions</div>
+                            <div class="bet-prediction">Résultat: 2-2 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
+                        
+                        <!-- Match 2 -->
+                        <div class="bet-match">
+                            <div class="bet-teams">Real Madrid - Arsenal <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">20:00 - Ligue des Champions</div>
+                            <div class="bet-prediction">Résultat: 1-2 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
+                        
+                        <!-- Match 3 -->
+                        <div class="bet-match">
+                            <div class="bet-teams">Newcastle United - Crystal Palace <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">19:30 - Premier League</div>
+                            <div class="bet-prediction">Résultat: 5-0 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -789,6 +913,20 @@
                 answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
             });
         });
+        
+        // Script pour afficher/masquer les résultats
+        function toggleResults() {
+            const resultsContent = document.getElementById('resultsContent');
+            const button = document.querySelector('.results-toggle');
+            
+            if (resultsContent.style.display === 'none' || resultsContent.style.display === '') {
+                resultsContent.style.display = 'block';
+                button.innerHTML = '<i class="fas fa-eye-slash"></i> MASQUER LES RÉSULTATS DU 16 AVRIL';
+            } else {
+                resultsContent.style.display = 'none';
+                button.innerHTML = '<i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 16 AVRIL';
+            }
+        }
     </script>
 </body>
 </html>
