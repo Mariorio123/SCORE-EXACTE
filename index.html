@@ -19,7 +19,37 @@
             --danger: #DC3545;
         }
         
-        /* Nouvelle section Hero */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            color: var(--text);
+            position: relative;
+            overflow-x: hidden;
+            background-color: var(--noir);
+        }
+        
+        .content-wrapper {
+            background-color: var(--noir-clair);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        
+        .premium-banner {
+            background: linear-gradient(90deg, #000000 0%, var(--noir-clair) 100%);
+            color: var(--gold);
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--gold);
+        }
+        
         .hero-section {
             position: relative;
             height: 400px;
@@ -33,7 +63,6 @@
             height: 100%;
             object-fit: cover;
             opacity: 0.8;
-            background: linear-gradient(to right, #000000cc, #00000000);
         }
         
         .hero-content {
@@ -66,7 +95,39 @@
             margin-right: auto;
         }
         
-        /* Nouvelle section Coupon du Jour */
+        header {
+            background: var(--noir-clair);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            border-bottom: 5px solid var(--gold);
+        }
+        
+        h1 {
+            color: var(--gold);
+            font-size: 2.5em;
+            margin: 0;
+            padding: 0;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: "VIP";
+            position: absolute;
+            top: -15px;
+            right: -40px;
+            background: var(--gold);
+            color: var(--noir);
+            font-size: 0.5em;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 20px;
+            transform: rotate(15deg);
+        }
+        
         .daily-offer {
             background: var(--noir-card);
             padding: 30px;
@@ -161,7 +222,6 @@
             vertical-align: middle;
         }
         
-        /* Section Résultats */
         .results-section {
             background: var(--noir-card);
             padding: 30px;
@@ -191,108 +251,19 @@
             letter-spacing: 1px;
         }
         
-        .results-toggle:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
-        }
-        
         .results-content {
             display: none;
             margin-top: 20px;
         }
         
-        .results-date {
+        .results-date-separator {
+            font-size: 1.3em;
             color: var(--gold);
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            text-align: center;
-            border-bottom: 1px solid var(--gold);
+            margin: 20px 0 10px;
             padding-bottom: 5px;
-        }
-        
-        /* Styles existants inchangés */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0;
-            color: var(--text);
-            position: relative;
-            overflow-x: hidden;
-            background-color: var(--noir);
-        }
-        
-        .content-wrapper {
-            background-color: var(--noir-clair);
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-        }
-        
-        .premium-banner {
-            background: linear-gradient(90deg, #000000 0%, var(--noir-clair) 100%);
-            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
             text-align: center;
-            padding: 15px;
             font-weight: bold;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid var(--gold);
-        }
-        
-        .premium-banner::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, 
-                          transparent, 
-                          rgba(255,215,0,0.1), 
-                          transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        header {
-            background: var(--noir-clair);
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            border-bottom: 5px solid var(--gold);
-        }
-        
-        h1 {
-            color: var(--gold);
-            font-size: 2.5em;
-            margin: 0;
-            padding: 0;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: "VIP";
-            position: absolute;
-            top: -15px;
-            right: -40px;
-            background: var(--gold);
-            color: var(--noir);
-            font-size: 0.5em;
-            font-weight: bold;
-            padding: 3px 10px;
-            border-radius: 20px;
-            transform: rotate(15deg);
         }
         
         .stats-container {
@@ -334,12 +305,6 @@
             font-size: 1.1em;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
         .pricing-section {
             background: var(--noir-card);
             padding: 40px;
@@ -350,16 +315,6 @@
             border: 1px solid #333;
         }
         
-        .pricing-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--noir-clair));
-        }
-        
         h2 {
             color: var(--gold);
             font-size: 1.8em;
@@ -367,16 +322,6 @@
             padding-bottom: 10px;
             border-bottom: 2px solid #333;
             position: relative;
-        }
-        
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100px;
-            height: 2px;
-            background: var(--gold);
         }
         
         .pricing-grid {
@@ -399,40 +344,11 @@
             height: 100%;
         }
         
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-        
-        .pricing-card.popular {
-            border: 2px solid var(--gold);
-        }
-        
-        .pricing-card.popular::before {
-            content: "LE PLUS POPULAIRE";
-            position: absolute;
-            top: 10px;
-            right: -30px;
-            background: var(--gold);
-            color: var(--noir);
-            font-weight: bold;
-            padding: 3px 30px;
-            transform: rotate(45deg);
-            font-size: 0.8em;
-        }
-        
         .price {
             font-size: 2em;
             font-weight: bold;
             color: var(--gold);
             margin: 15px 0;
-        }
-        
-        .price span {
-            font-size: 0.6em;
-            color: var(--text-light);
-            font-weight: normal;
         }
         
         .btn-subscribe {
@@ -453,35 +369,6 @@
             font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-subscribe::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(255,255,255,0.2), transparent);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-subscribe:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.6);
-            background: linear-gradient(135deg, #1e7d34, var(--success));
-        }
-        
-        .btn-subscribe:hover::after {
-            transform: translateY(0);
-        }
-        
-        .btn-subscribe i {
-            margin-left: 8px;
-            font-size: 1.1em;
         }
         
         .feature-list {
@@ -496,15 +383,6 @@
             position: relative;
             padding-left: 30px;
             color: var(--text-light);
-        }
-        
-        .feature-list li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--gold);
-            position: absolute;
-            left: 0;
         }
         
         .testimonials {
@@ -529,23 +407,6 @@
             border-left: 3px solid var(--gold);
         }
         
-        .testimonial-card::before {
-            content: "\201C";
-            font-family: Georgia, serif;
-            font-size: 4em;
-            color: rgba(255,215,0,0.1);
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            margin-top: 15px;
-            color: var(--gold);
-            text-align: right;
-        }
-        
         .disclaimer {
             background: rgba(255,215,0,0.05);
             padding: 20px;
@@ -564,16 +425,6 @@
             margin: 30px 0;
         }
         
-        .contact-box a {
-            color: var(--gold);
-            font-weight: bold;
-            text-decoration: none;
-        }
-        
-        .contact-box a:hover {
-            text-decoration: underline;
-        }
-        
         .limited-offer {
             animation: flash 2s infinite;
             text-align: center;
@@ -584,11 +435,6 @@
             background: rgba(255, 215, 0, 0.1);
             border-radius: 8px;
             border: 1px dashed var(--gold);
-        }
-        
-        @keyframes flash {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
         }
         
         .faq-section {
@@ -616,6 +462,17 @@
             color: var(--text-light);
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
         @media (max-width: 768px) {
             .hero-section {
                 height: 300px;
@@ -625,10 +482,6 @@
                 font-size: 2em;
             }
             
-            .hero-subtitle {
-                font-size: 1.1em;
-            }
-            
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
@@ -636,17 +489,10 @@
             h1 {
                 font-size: 1.8em;
             }
-            
-            .pricing-card.popular::before {
-                font-size: 0.7em;
-                right: -25px;
-                padding: 2px 20px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Nouvelle section Hero ajoutée -->
     <div class="hero-section">
         <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Analyses sportives premium" class="hero-image">
         <div class="hero-content">
@@ -666,71 +512,90 @@
         </header>
         
         <div style="padding: 0 30px;">
-            <!-- Nouvelle section Coupon du Jour -->
-            <div class="daily-offer">
-                <div class="daily-offer-badge">COUPON DU JOUR</div>
-                <h2>PRONOSTICS EXCLUSIFS - 17 AVRIL 2025</h2>
-                <div class="bet-coupon">
-                    <!-- Match 1 -->
-                    <div class="bet-match">
-                        <div class="bet-teams">Eintracht Frankfurt - Tottenham Hotspur</div>
-                        <div class="bet-date">20:00 - Ligue Europa</div>
-                        <div class="hidden-prediction">Pronostic: Plus de 1.5 buts dans le match</div>
+            <!-- SECTION RÉSULTATS -->
+            <div class="results-section">
+                <h2>RÉSULTATS</h2>
+                
+                <!-- Bouton 17 avril -->
+                <button class="results-toggle" onclick="toggleResults('results17Content')">
+                    <i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 17 AVRIL
+                </button>
+                
+                <!-- Contenu 17 avril -->
+                <div class="results-content" id="results17Content">
+                    <div class="results-date-separator">17 AVRIL 2025</div>
+                    <div class="bet-coupon">
+                        <div class="bet-match">
+                            <div class="bet-teams">Porto - Famalicão <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">18:00 - Liga Portugal</div>
+                            <div class="bet-prediction">Total: (2) Plus de - Score: 2-1 <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
+                        
+                        <div class="bet-match">
+                            <div class="bet-teams">Sporting CP - Moreirense <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">20:30 - Liga Portugal</div>
+                            <div class="bet-prediction">Total: (1.5) Plus de - Score: 3-1 <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
                     </div>
-                    
-                    <!-- Match 2 -->
-                    <div class="bet-match">
-                        <div class="bet-teams">Lazio - Bodo-Glimt</div>
-                        <div class="bet-date">20:00 - Ligue Europa Conférence</div>
-                        <div class="hidden-prediction">Pronostic: Plus de 2.5 buts dans le match</div>
-                    </div>
-                    
-                    <!-- Match 3 -->
-                    <div class="bet-match">
-                        <div class="bet-teams">Fiorentina - Celje</div>
-                        <div class="bet-date">17:45 - Ligue Europa Conférence</div>
-                        <div class="hidden-prediction">Pronostic: Plus de 1.5 buts dans le match</div>
-                    </div>
-                    
-                    <!-- Match 4 -->
-                    <div class="bet-match">
-                        <div class="bet-teams">Chelsea - Legia Varsovie</div>
-                        <div class="bet-date">20:00 - Ligue Europa</div>
-                        <div class="hidden-prediction">Pronostic: Plus de 2.5 buts dans le match</div>
+                </div>
+                
+                <!-- Bouton 18 avril -->
+                <button class="results-toggle" onclick="toggleResults('results18Content')" style="margin-top: 10px;">
+                    <i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 18 AVRIL
+                </button>
+                
+                <!-- Contenu 18 avril -->
+                <div class="results-content" id="results18Content">
+                    <div class="results-date-separator">18 AVRIL 2025</div>
+                    <div class="bet-coupon">
+                        <div class="bet-match">
+                            <div class="bet-teams">Espanyol - Getafe <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">20:00 - La Liga</div>
+                            <div class="bet-prediction">Total: (0.5) Plus de - Score: 1-0 <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
+                        
+                        <div class="bet-match">
+                            <div class="bet-teams">Stade Rennais - Nantes <span class="validated-badge">VALIDÉ</span></div>
+                            <div class="bet-date">19:45 - Ligue 1</div>
+                            <div class="bet-prediction">Double chance: 12 - Score: 2-1 <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Section Résultats -->
-            <div class="results-section">
-                <h2>RÉSULTATS</h2>
-                <button class="results-toggle" onclick="toggleResults()">
-                    <i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 16 AVRIL
-                </button>
-                
-                <div class="results-content" id="resultsContent">
-                    <div class="results-date">RÉSULTATS DU 16 AVRIL 2025</div>
-                    <div class="bet-coupon">
-                        <!-- Match 1 -->
-                        <div class="bet-match">
-                            <div class="bet-teams">Inter Milan - Bayern Munich <span class="validated-badge">VALIDÉ</span></div>
-                            <div class="bet-date">20:00 - Ligue des Champions</div>
-                            <div class="bet-prediction">Résultat: 2-2 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
-                        </div>
-                        
-                        <!-- Match 2 -->
-                        <div class="bet-match">
-                            <div class="bet-teams">Real Madrid - Arsenal <span class="validated-badge">VALIDÉ</span></div>
-                            <div class="bet-date">20:00 - Ligue des Champions</div>
-                            <div class="bet-prediction">Résultat: 1-2 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
-                        </div>
-                        
-                        <!-- Match 3 -->
-                        <div class="bet-match">
-                            <div class="bet-teams">Newcastle United - Crystal Palace <span class="validated-badge">VALIDÉ</span></div>
-                            <div class="bet-date">19:30 - Premier League</div>
-                            <div class="bet-prediction">Résultat: 5-0 (Plus de 2.5 buts) <i class="fas fa-check-circle" style="color: var(--success); margin-left: 5px;"></i></div>
-                        </div>
+            <!-- SECTION PRONOSTICS 19 AVRIL -->
+            <div class="daily-offer">
+                <div class="daily-offer-badge">COUPON DU JOUR</div>
+                <h2>PRONOSTICS EXCLUSIFS - 19 AVRIL 2025</h2>
+                <div class="bet-coupon">
+                    <div class="bet-match">
+                        <div class="bet-teams">Rayo Vallecano - Valencia</div>
+                        <div class="bet-date">13:00 - La Liga</div>
+                        <div class="hidden-prediction">RÉSERVÉ AUX ABONNÉS</div>
+                    </div>
+                    
+                    <div class="bet-match">
+                        <div class="bet-teams">Barcelone - Celta de Vigo</div>
+                        <div class="bet-date">15:15 - La Liga</div>
+                        <div class="hidden-prediction">RÉSERVÉ AUX ABONNÉS</div>
+                    </div>
+                    
+                    <div class="bet-match">
+                        <div class="bet-teams">Paris SG - Le Havre</div>
+                        <div class="bet-date">16:00 - Ligue 1</div>
+                        <div class="hidden-prediction">RÉSERVÉ AUX ABONNÉS</div>
+                    </div>
+                    
+                    <div class="bet-match">
+                        <div class="bet-teams">AS Monaco - Strasbourg</div>
+                        <div class="bet-date">18:00 - Ligue 1</div>
+                        <div class="hidden-prediction">RÉSERVÉ AUX ABONNÉS</div>
+                    </div>
+                    
+                    <div class="bet-match">
+                        <div class="bet-teams">Olympique Marseille - Montpellier</div>
+                        <div class="bet-date">20:05 - Ligue 1</div>
+                        <div class="hidden-prediction">RÉSERVÉ AUX ABONNÉS</div>
                     </div>
                 </div>
             </div>
@@ -794,7 +659,7 @@
                         </a>
                     </div>
                     
-                    <div class="pricing-card popular">
+                    <div class="pricing-card">
                         <h3>ABONNEMENT HEBDOMADAIRE</h3>
                         <div class="price">25 000fr <span>/ semaine</span></div>
                         <ul class="feature-list">
@@ -836,11 +701,6 @@
                         </a>
                     </div>
                 </div>
-                
-                <p style="text-align: center; font-style: italic; color: var(--text-light);">
-                    Les abonnements ne sont pas renouvelés automatiquement.<br>
-                    Pronostics envoyés par email immédiatement après votre paiement.
-                </p>
             </div>
             
             <div class="testimonials">
@@ -884,13 +744,6 @@
                         Nos abonnements ne sont pas renouvelés automatiquement. Vous payez uniquement pour la période choisie et n'avez aucune démarche à faire pour résilier.
                     </div>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Quelle est votre méthode d'analyse ?</div>
-                    <div class="faq-answer">
-                        Notre équipe d'experts combine analyse statistique, suivi des performances, étude des cotes et informations exclusives pour identifier les paris avec la meilleure valeur. Nous nous concentrons sur la qualité plutôt que la quantité.
-                    </div>
-                </div>
             </div>
             
             <div class="contact-box">
@@ -915,18 +768,25 @@
         });
         
         // Script pour afficher/masquer les résultats
-        function toggleResults() {
-            const resultsContent = document.getElementById('resultsContent');
-            const button = document.querySelector('.results-toggle');
+        function toggleResults(contentId) {
+            const resultsContent = document.getElementById(contentId);
+            const button = document.querySelector(`button[onclick="toggleResults('${contentId}')"]`);
             
             if (resultsContent.style.display === 'none' || resultsContent.style.display === '') {
                 resultsContent.style.display = 'block';
-                button.innerHTML = '<i class="fas fa-eye-slash"></i> MASQUER LES RÉSULTATS DU 16 AVRIL';
+                button.innerHTML = '<i class="fas fa-eye-slash"></i> MASQUER LES RÉSULTATS';
             } else {
                 resultsContent.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-eye"></i> VOIR LES RÉSULTATS DU 16 AVRIL';
+                button.innerHTML = '<i class="fas fa-eye"></i> VOIR LES RÉSULTATS';
             }
         }
+        
+        // Masquer tous les contenus de résultats au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.results-content').forEach(content => {
+                content.style.display = 'none';
+            });
+        });
     </script>
 </body>
 </html>
